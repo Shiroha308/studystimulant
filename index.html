@@ -1,0 +1,194 @@
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <!--フォント設定-->
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <title>Basic</title>
+</head>
+
+<body onload="intervalClock()">
+
+  <!--digital clock-->
+  <div class="clockcontents">
+    <div class="date">
+      <span id="dayname">Day</span>
+      <span id="month">Month</span>
+      <span id="daynum">00</span>
+      <span id="Year">Year</span>
+    </div>
+    <div class="timer">
+      <span id="hours">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="AMPM">AM</span>
+    </div>
+  </div>
+
+  <!--アラーム用-->
+  <p></p>
+  <hr class="samplehr">
+	<h2>アラームを設定しよう！</h2>
+  <div class="alarmbox">
+    <div class="alarmhour" value="">
+      <select id="selecthour" onchange="alarmset()">
+        <option value="00" type="text">00</option>
+        <option value="01" type="text">01</option>
+        <option value="02" type="text">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+      </select>
+    </div><span id="timertext">時</span>
+    <div class="alarmmin" value="">
+      <select id="selectmin" onchange="alarmset()">
+        <option value="00" type="text">00</option>
+        <option value="01" type="text">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        <option value="32">32</option>
+        <option value="33">33</option>
+        <option value="34">34</option>
+        <option value="35">35</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+        <option value="45">45</option>
+        <option value="46">46</option>
+        <option value="47">47</option>
+        <option value="48">48</option>
+        <option value="49">49</option>
+        <option value="50">50</option>
+        <option value="51">51</option>
+        <option value="52">52</option>
+        <option value="53">53</option>
+        <option value="54">54</option>
+        <option value="55">55</option>
+        <option value="56">56</option>
+        <option value="57">57</option>
+        <option value="58">58</option>
+        <option value="59">59</option>
+      </select>
+    </div><span id="timertext">分</span>
+
+  </div>
+  <p></p>
+  <div class="alarmbtn">
+    <button id="alarmstart" onclick="firealarm()">アラーム開始</button>
+    <p></p>
+    <button id="alarmstop" onclick="stopalarm()">アラーム解除</button>
+  </div>
+  <p></p>
+  <p>◆◆◆◆◆◆◆◆</p>
+  <p></p>
+  <div id="output"></div>
+  <p></p>
+  <hr class="samplehr">
+  <h2>タイマーを設定しよう！</h2>
+  <div id="bargroup">
+    <div class="time">時：<span id="hour_value">0</span><br><input id="hour" type="range" min="0" max="99" step="1" value="0"><br></div>
+    <div class="time">分：<span id="minute_value">1</span><br><input id="minute" type="range" min="0" max="59" step="1" value="1"><br> </div>
+    <div class="time">秒：<span id="second_value">0</span><br><input id="second" type="range" min="0" max="59" step="1" value="0"><br></div>
+  </div>
+
+  <div id="varvar">
+    <div id="largehour" class="time_display"><span id="hour_display">00</span></div>:
+    <div id="largeminute" class="time_display"><span id="minute_display">1</span></div>:
+    <div id="largesecond" class="time_display"><span id="second_display">00</span></div>
+  </div><br>
+<!--ボタン装飾-->
+  <div class="buttonlist">
+  <input type="button" id="start_button" value="start" onclick="start()">
+  <input type="button" id="stop_button" value="stop"  onclick="stop()" disabled>
+  <input type="button" id="reset_button" value="reset" onclick="reset()" disabled><br>
+ </div>
+  
+  
+  <div id="servicecontents">
+    <p>★おまけ★</p>
+    <p>下のボタンを押すと30分毎に勉強を応援してくれるよ！</p>
+    <input type="button" id="encourage" value="勉強支援ボタン" onclick="encouragestudy()">
+  </div>
+  <div id="description">
+   <hr class="samplehr">
+    <p>★制作物の説明★</p>
+    <p>・アラーム機能：</p>
+    <p>自分の設定したい時間を分単位で決めることが出来る。定刻になるとランダムでBGMが流れてくれるよ。アラーム解除押すまで鳴り続けるから要注意。</p>
+    <p>・タイマー機能</p>
+    <p>こちらは秒単位でタイマーを設定することが可能。Start > Stop > Resetの順番で押さないとボタンは反応しないように作成。こちらもランダムでBGMが流れる仕様。</p>
+    <p>・おまけ</p>
+    <p>勉強にぴったりの30分ごとに応援メッセージを届けてくれる優れもの機能。勉強が長続きしないときに使おう。</p>
+  </div>
+  
+<!--音声を好きなだけ貯める場所。-->
+  <div Id="wakeupbgm">
+  <audio src="sound/asuka.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/irohasu.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/rem1.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/rem2.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/rem3.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/rem4.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/rem5.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  <audio src="sound/rem6.mp3" class="audiolist" loop>現環境では終了時にアラームが鳴りません</audio>
+  </div>
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/practice.js"></script>
+</body></html>

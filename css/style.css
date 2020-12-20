@@ -1,0 +1,304 @@
+@charset "utf-8";
+/*標準設定の解除*/
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff !important;
+  font-size: 15px;
+  line-height: 2;
+  background-color: #00B0B0 !important;
+  font-family: 'Kosugi Maru'!important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/*見出し装飾*/
+.liner {
+  width: 100%;
+  text-align: center;
+}
+
+.liner h2 {
+  position: relative;
+  display: inline-block;
+  padding: 16px 40px;
+  border-top: 2px solid #111;
+  color:#393939;
+}
+
+.liner h2:before,
+.liner h2:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111;
+  position: absolute;
+  top: -6px;
+}
+
+.liner h2:before {
+  left: -4px;
+}
+
+.liner h2:after {
+  right: -4px;
+}
+
+
+/*画像を入れた時の隙間解除*/
+img {
+  vertical-align: bottom;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*幅を指定、外枠の編集*/
+.clockcontents {
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 70%;
+  padding: 15px 10px;
+  border-radius: 20px;
+  border: 4px solid #fff;
+}
+
+.clockcontents:hover {
+  background: #fff;
+  color: #00B0B0;
+  box-shadow: 0 0 30px #00B0B0;
+}
+
+/*文字の設定*/
+.date {
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  align-items: center;
+}
+
+.time span:last-child {
+  background-color: #fff;
+  color: #00B0B0;
+  border-radius: 5px;
+  font-size: 0.6em;
+  margin-left: 5px;
+  margin-top: 5px;
+  padding: 0 5px;
+
+}
+
+.alarmbox {
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 15px 10px;
+  border-radius: 20px;
+  border: 4px solid #fff;
+  width: 70%;
+  display: flex;
+}
+
+.alarmhour {
+  font-size: 2em;
+}
+
+.alarmmin {
+  font-size: 2em;
+}
+
+#timertext {
+  font-size: 2em;
+}
+
+/*selectボックスに対する装飾*/
+select {
+  border-radius: 10px;
+  background: #00B0B0;
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  font-size: 2.3em;
+  -webkit-appearance: none;
+  /* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;
+  /* ベンダープレフィックス(Firefox用) */
+  appearance: none;
+  /* 標準のスタイルを無効にする */
+}
+
+/* スクロールバーを消去 */
+
+select::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  scrollbar-width: none;
+}
+
+/* ボタン装飾 */
+
+.alarmbtn {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#alarmstart,
+#alarmstop {
+  color: #fff;
+  background-color: #00B0B0;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+
+#alarmstart:hover {
+  color: #00B0B0;
+  background-color: #fff;
+}
+
+#alarmstop:hover {
+  color: #00B0B0;
+  background-color: #fff;
+}
+
+#output {
+  text-align: center;
+}
+
+/* rangeバーの装飾 */
+
+[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #FF3399;
+  height: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* タイマーの装飾 */
+
+.timer {
+  display: flex;
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+#varvar {
+  align-items: center;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.time_display {
+  display: inline-block;
+}
+
+input#hour,
+input#minute,
+input#second {
+  border: none;
+  color: #fff;
+  margin-left: 5%;
+}
+
+.buttonlist {
+  text-align: center;
+  display: flex;
+  margin-bottom: 40px;
+  padding: 0 5px;
+}
+
+#start_button,
+#stop_button,
+#reset_button{
+  font-size: 1.4em;
+  color: #fff;
+  background-color: #00B0B0;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  padding: 3px 25px;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+#servicecontents{
+  text-align: center;
+  margin-bottom:30px;
+}
+
+#encourage{
+  font-size: 1.4em;
+  color: #fff;
+  background-color: #00B0B0;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  padding: 3px 25px;
+  line-height: 1.2;
+}
+
+#start_button:hover,
+#stop_button:hover,
+#reset_button:hover,
+#encourage:hover{
+  color: #00B0B0;
+  background-color: #fff;
+}
+
+
+
+/*その他装飾*/
+
+hr.samplehr {
+  height: 11px!important;
+  background: #555;
+  border: 0;
+  width: 70%;
+  margin: 20px auto;
+  opacity: 1;
+}
+
+hr.samplehr:before {
+  content: "";
+  position: relative;
+  border-bottom: 3px solid #f39;
+  top: 4px;
+  display: block;
+}
+
+#description p{
+  padding:0 20px;
+  text-align: center;
+}
