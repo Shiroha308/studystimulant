@@ -131,7 +131,7 @@ function firealarm() {
       }
       var selecthour = document.getElementById("selecthour").value;
       var selectmin = document.getElementById("selectmin").value;
-      if (selecthour == hou && selectmin <= min) {
+      if (selecthour == hou && selectmin == min && sec== 0) {
         playaudio();
       }
     }, 1000)
