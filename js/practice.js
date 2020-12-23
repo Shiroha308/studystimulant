@@ -5,14 +5,25 @@ function reset() {
 }
 
 //音楽格納庫を作成
-var bgmno=document.getElementsByClassName("audiolist")
-var bgmNo = Math.floor( Math.random() * bgmno.length);
-console.log(bgmno[bgmNo]);//これで番号で返すことが出来た。
+var bgmno = document.getElementsByClassName("audiolist")
+var bgmNo = Math.floor(Math.random() * bgmno.length);
+console.log(bgmno[bgmNo]); //これで番号で返すことが出来た。
 
 //ランダムに音楽を鳴らす関数を作成。
 function playaudio() {
   bgmno[bgmNo].play();
 }
+
+//おまけ用格納庫を作成
+var bgmnoomake = document.getElementsByClassName("audiolistomake")
+var bgmNoomake = Math.floor(Math.random() * bgmnoomake.length);
+
+//ランダムに音楽を鳴らす関数を作成。
+function playaudioomake() {
+  bgmnoomake[bgmNoomake].play();
+}
+
+
 //音楽を止める
 function stopaudio() {
   bgmno[bgmNo].pause();
@@ -20,7 +31,7 @@ function stopaudio() {
 
 //windowに対する通知の練習
 //window.location.hrefでリンクを追加して飛ばす。
-//何故かリンク飛ばない！
+/*
 function showNotification() {
   const notification = new Notification("勉強お疲れ様！", {
     body: "英語たるんでるんじゃない？",
@@ -39,6 +50,7 @@ if (Notification.permission === "granted") {
     showNotification();
   });
 }
+*/
 
 //現在時間を取得
 
@@ -258,9 +270,14 @@ function stop() {
 
 //30分を取得
 
-var thirtymin=30*60*60;
+var thirtymin = 30 * 60 * 60;
 console.log(thirtymin);
 
-function encouragestudy(){
-  setInterval(playaudio(),10000);
+function encouragestudy() {
+  setInterval(function () {
+    var bgmnoomake = document.getElementsByClassName("audiolistomake")
+    var bgmNoomake = Math.floor(Math.random() * bgmnoomake.length);
+    bgmnoomake[bgmNoomake].play();
+  }, thirtymin);
+  document.getElementById("encourage").disabled = true;
 }
